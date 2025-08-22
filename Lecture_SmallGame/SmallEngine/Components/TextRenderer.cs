@@ -2,6 +2,9 @@
 namespace Lecture_SmallGame.SmallEngine.Components;
 
 // TODO implement multiline, wrap and overflow, maybe some color animation or _ animation
+/// <summary>
+/// A <see cref="Component"/> that handles text rendering. Currently supports only single line text.
+/// </summary>
 public class TextRenderer : Renderer
 {
     public string Text { get; set { string lastText = field; field = value; OnTextChange(lastText); } } = "";

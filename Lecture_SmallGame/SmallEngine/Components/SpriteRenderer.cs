@@ -1,6 +1,9 @@
 ﻿
 namespace Lecture_SmallGame.SmallEngine.Components;
 
+/// <summary>
+/// A <see cref="Component"/> that handles sprite rendering.
+/// </summary>
 public class SpriteRenderer : Renderer // TODO double buffer
 {
     public Sprite Sprite { get; set { field = value; Writer.ReRender(Bounds); } }

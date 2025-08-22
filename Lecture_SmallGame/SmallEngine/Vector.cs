@@ -1,6 +1,11 @@
 ﻿
 namespace Lecture_SmallGame.SmallEngine;
 
+/// <summary>
+/// Class that is used for positions in the console world space.
+/// </summary>
+/// <param name="x"></param>
+/// <param name="y"></param>
 public struct Vector(float x, float y)
 {
     public float X { get; set; } = x;

@@ -1,6 +1,9 @@
 ﻿
 namespace Lecture_SmallGame.SmallEngine.Components;
 
+/// <summary>
+/// A <see cref="Component"/> that handles box shaped collisions.
+/// </summary>
 public class BoxCollider : Collider
 {
     public Vector Size { get; set { field = value; } }

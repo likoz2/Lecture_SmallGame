@@ -2,10 +2,16 @@
 
 namespace Lecture_SmallGame.SmallEngine;
 
+/// <summary>
+/// Class that provides a Sprite behavior. Contains a manipulation for its content.
+/// </summary>
 public class Sprite
 {
+    /// <summary>Width of the <see cref="Sprite"/>.</summary>
     public int Width { get; init; }
+    /// <summary>Height of the <see cref="Sprite"/>.</summary>
     public int Height { get; init; }
+    /// <summary>Layer of the <see cref="Sprite"/>.</summary>
     public int Layer
     {
         get;
@@ -24,6 +30,9 @@ public class Sprite
 
     private readonly PixelData[,] _pixelDatas;
 
+    /// <summary>Initializes a new instance of the <see cref="Sprite"/> class using a width and height parameters.</summary>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
     public Sprite(int width, int height)
     {
         Width = Math.Clamp(width, 1, 128);
@@ -39,6 +48,8 @@ public class Sprite
         }
     }
 
+    /// <summary>Initializes a new instance of the <see cref="Sprite"/> class using an array.</summary>
+    /// <param name="array">The sprite to be created.</param>
     public Sprite(string[] array)
     {
         Width = array.ToList().Max(x => x.Length);
@@ -57,6 +68,12 @@ public class Sprite
         }
     }
 
+    /// <summary>
+    /// Checks what <see langword="char"/> is at a specified position in the sprite.
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns>A <see langword="char"/> on specified position or '\0' when out of bounds.</returns>
     public char CharAt(int x, int y)
     {
         if (y < 0 || y >= Height)
@@ -68,6 +85,13 @@ public class Sprite
         return _pixelDatas[x, y].Char;
     }
 
+    /// <summary>
+    /// Checks what <see cref="PixelData"/> is at a specified position in the sprite.
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="y"></param>
+    /// <returns>A <see cref="PixelData"/> on specified position.</returns>
+    /// <exception cref="IndexOutOfRangeException"><paramref name="x"/> or <paramref name="y"/> out of bounds.</exception>
     public PixelData PixelDataAt(int x, int y)
     {
         return _pixelDatas[x, y]; // will throw an exception if out of bounds

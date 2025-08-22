@@ -7,6 +7,9 @@ public static class Engine
     static readonly List<GameObject> _gameObjects = new List<GameObject>();
     const int _tickRate = 30;
 
+    /// <summary>
+    /// The Root object in the hierarchy.
+    /// </summary>
     public static Transform Root { get; private set; }
 
     static Engine()
@@ -47,10 +50,34 @@ public static class Engine
         }
     }
 
+    /// <summary>
+    /// Creates a new instance of the specified type <typeparamref name="T"/>.
+    /// </summary>
+    /// <remarks>Should be used instead of just calling the parameterless constructor.</remarks>
+    /// <typeparam name="T">The type of object to instantiate. Must be a subclass of <see cref="GameObject"/> and have a parameterless
+    /// constructor.</typeparam>
+    /// <returns>A new instance of <typeparamref name="T"/>.</returns>
     public static T Instantiate<T>() where T : GameObject, new() => Instantiate<T>(new Vector());
 
+    /// <summary>
+    /// Creates a new instance of the specified type <typeparamref name="T"/>.
+    /// </summary>
+    /// <remarks>Should be used instead of just calling the parameterless constructor.</remarks>
+    /// <typeparam name="T">The type of object to instantiate. Must be a subclass of <see cref="GameObject"/> and have a parameterless
+    /// constructor.</typeparam>
+    /// <param name="position">The position where the new object will be instantiated.</param>
+    /// <returns>A new instance of type <typeparamref name="T"/> positioned at the specified location.</returns>
     public static T Instantiate<T>(Vector position) where T : GameObject, new() => Instantiate<T>(position, Root);
 
+    /// <summary>
+    /// Creates a new instance of the specified type <typeparamref name="T"/>.
+    /// </summary>
+    /// <remarks>Should be used instead of just calling the parameterless constructor.</remarks>
+    /// <typeparam name="T">The type of object to instantiate. Must be a subclass of <see cref="GameObject"/> and have a parameterless
+    /// constructor.</typeparam>
+    /// <param name="position">The position where the new object will be instantiated.</param>
+    /// <param name="parent">The parent <see cref="Transform"/> to which the new object's transform will be added. If <see langword="null"/>,
+    /// the parent will be a set to the Root <see cref="Transform"/>.</param>
     public static T Instantiate<T>(Vector position, Transform parent) where T : GameObject, new()
     {
         T gameObject = new T();
@@ -63,6 +90,10 @@ public static class Engine
         return gameObject;
     }
 
+    /// <summary>
+    /// Destroys the gameobject and all its components. Destroys children first.
+    /// </summary>
+    /// <param name="gameObject"></param>
     public static void Destroy(GameObject gameObject)
     {
         foreach (Transform child in gameObject.Transform)

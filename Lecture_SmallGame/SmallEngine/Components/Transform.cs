@@ -2,6 +2,9 @@
 
 namespace Lecture_SmallGame.SmallEngine.Components;
 
+/// <summary>
+/// A <<see cref="Component"/>> that manages the Position of the GameObject as well as its name and children.
+/// </summary>
 public class Transform : Component, IEnumerable<Transform>
 {
     private readonly List<Transform> _children = new List<Transform>();

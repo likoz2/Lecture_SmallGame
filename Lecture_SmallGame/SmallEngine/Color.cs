@@ -2,6 +2,9 @@
 
 namespace Lecture_SmallGame.SmallEngine;
 
+/// <summary>
+/// Class that manages colors which you can use to write.
+/// </summary>
 public struct Color : IFormattable
 {
     public float R { get; set; }
@@ -9,8 +12,18 @@ public struct Color : IFormattable
     public float B { get; set; }
     public float A { get; set; } = 255;
 
+    /// <summary>
+    /// A Random <see cref="Color"/>. Generates new <see cref="Color"/> every time this is used.
+    /// </summary>
     public static Color Random => new Color(Rand.Next(0, 256), Rand.Next(0, 256), Rand.Next(0, 256));
 
+    /// <summary>
+    /// Create an instance using RGB float 0-255.
+    /// </summary>
+    /// <remarks>Allows a creation outside of the range.</remarks>
+    /// <param name="r">red 0-255</param>
+    /// <param name="g">green 0-255</param>
+    /// <param name="b">blue 0-255</param>
     public Color(float r, float g, float b)
     {
         R = r;
@@ -18,6 +31,13 @@ public struct Color : IFormattable
         B = b;
     }
 
+    /// <summary>
+    /// Create an instance using RGB int 0-255.
+    /// </summary>
+    /// <remarks>Allows a creation outside of the range.</remarks>
+    /// <param name="r">red 0-255</param>
+    /// <param name="g">green 0-255</param>
+    /// <param name="b">blue 0-255</param>
     public Color(int r, int g, int b)
     {
         R = r;
@@ -25,6 +45,10 @@ public struct Color : IFormattable
         B = b;
     }
 
+    /// <summary>
+    /// Create an instance using gray scale float 0-255
+    /// </summary>
+    /// <param name="gray"></param>
     public Color(float gray) : this(gray, gray, gray)
     {
     }
@@ -33,6 +57,14 @@ public struct Color : IFormattable
     {
     }
 
+    /// <summary>
+    /// Create an instance using RGB int 0-255.
+    /// </summary>
+    /// <remarks>Allows a creation outside of the range.</remarks>
+    /// <param name="r">red 0-255</param>
+    /// <param name="g">green 0-255</param>
+    /// <param name="b">blue 0-255</param>
+    /// <param name="a">alpha 0-255</param>
     public Color(float r, float g, float b, float a) : this(r, g, b)
     {
         A = a;
@@ -55,6 +87,13 @@ public struct Color : IFormattable
         return new Color(c1.R / f, c1.G / f, c1.B / f);
     }
 
+    /// <summary>
+    /// Create an instance using HSV values.
+    /// </summary>
+    /// <param name="h"></param>
+    /// <param name="s"></param>
+    /// <param name="v"></param>
+    /// <returns>New <see cref="Color"/> with RGB values calculated from the specified HSV.</returns>
     public static Color FromHSV(int h, int s, int v)
     {
         (int r, int g, int b) = HSVtoRGB(h, s, v);
@@ -62,6 +101,13 @@ public struct Color : IFormattable
     }
 
     // Written by Copilot, it works... no idea if it is efficient or something...
+    /// <summary>
+    /// Convert HSV to RGB.
+    /// </summary>
+    /// <param name="h"></param>
+    /// <param name="s"></param>
+    /// <param name="v"></param>
+    /// <returns>Returns a <see langword="tuple"/> of r,g,b that are calculated from the specified HSV.</returns>
     public static (int r, int g, int b) HSVtoRGB(int h, int s, int v)
     {
         // Clamp input ranges
@@ -118,6 +164,10 @@ public struct Color : IFormattable
         return ((int)(r * 255), (int)(g * 255), (int)(b * 255));
     }
 
+    /// <summary>
+    /// Converts color to <see cref="string"/> similar to this: "0, 25, 150".
+    /// </summary>
+    /// <returns><see cref="string"/> like "R, G, B"</returns>
     public override string ToString()
     {
         return $"{R}, {G}, {B}";

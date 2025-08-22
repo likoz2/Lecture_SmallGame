@@ -1,5 +1,8 @@
 ﻿namespace Lecture_SmallGame.SmallEngine.Components;
 
+/// <summary>
+/// A base <see cref="Component"/> that allows rendering handling for inheriting classes.
+/// </summary>
 public abstract class Renderer : Component
 {
     public int Layer { get; set { field = value; OnLayerChange(value); Writer.OnRendererChangeLayer(this); } } = 10;

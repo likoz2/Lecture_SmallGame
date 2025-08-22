@@ -38,7 +38,7 @@ internal class Program
         GameObject someText = Engine.Instantiate<GameObject>();
         TextRenderer renderer1 = someText.AddComponent<TextRenderer>();
         Task.Delay(1000).Wait();
-        renderer1.Text = "This is a test line.";
+        renderer1.Text = "This is a test line.\nThis is a test line.";
         Task.Delay(1000).Wait();
         renderer1.ColorTopLeft = color1;
         Task.Delay(1000).Wait();
