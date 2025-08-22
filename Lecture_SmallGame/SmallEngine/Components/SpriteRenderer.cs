@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Lecture_SmallGame.SmallEngine.Components;
 
-internal class SpriteRenderer : Renderer // TODO double buffer
+public class SpriteRenderer : Renderer // TODO double buffer
 {
     public Sprite Sprite { get; set { field = value; Writer.ReRender(Bounds); } }
     public override Vector LocalPosition { get; set { field = value; Writer.ReRender(Bounds); } }

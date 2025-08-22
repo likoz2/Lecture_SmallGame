@@ -3,7 +3,7 @@
 namespace Lecture_SmallGame.SmallEngine;
 
 // Both GameObject and Component inherited from EngineObject.. but I didnt find a usecase for that so the dont inherit it anymore..
-internal class GameObject
+public class GameObject
 {
     public Transform Transform { get; init; }
 

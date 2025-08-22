@@ -1,5 +1,4 @@
-﻿
-using Lecture_SmallGame.SmallEngine;
+﻿using Lecture_SmallGame.SmallEngine;
 using Lecture_SmallGame.SmallEngine.Components;
 
 namespace Lecture_SmallGame;

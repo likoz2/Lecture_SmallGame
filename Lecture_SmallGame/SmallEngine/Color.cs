@@ -1,29 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Lecture_SmallGame.SmallEngine;
 
-internal struct Color : IFormattable
+public struct Color : IFormattable
 {
     public float R { get; set; }
     public float G { get; set; }
     public float B { get; set; }
     public float A { get; set; } = 255;
 
-    public static Color Random => new Color(SmallEngine.Random.Next(0, 256), SmallEngine.Random.Next(0, 256), SmallEngine.Random.Next(0, 256));
+    public static Color Random => new Color(Rand.Next(0, 256), Rand.Next(0, 256), Rand.Next(0, 256));
 
-    internal Color(float r, float g, float b)
+    public Color(float r, float g, float b)
     {
         R = r;
         G = g;
         B = b;
     }
 
-    internal Color(int r, int g, int b)
+    public Color(int r, int g, int b)
     {
         R = r;
         G = g;
@@ -60,14 +55,14 @@ internal struct Color : IFormattable
         return new Color(c1.R / f, c1.G / f, c1.B / f);
     }
 
-    internal static Color FromHSV(int h, int s, int v)
+    public static Color FromHSV(int h, int s, int v)
     {
         (int r, int g, int b) = HSVtoRGB(h, s, v);
         return new Color(r, g, b);
     }
 
     // Written by Copilot, it works... no idea if it is efficient or something...
-    internal static (int r, int g, int b) HSVtoRGB(int h, int s, int v)
+    public static (int r, int g, int b) HSVtoRGB(int h, int s, int v)
     {
         // Clamp input ranges
         h = Math.Clamp(h, 0, 359);

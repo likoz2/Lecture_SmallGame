@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace Lecture_SmallGame.SmallEngine;
 
@@ -12,7 +7,7 @@ internal class ScreenBuffer : IEnumerable<Pixel>
 
     private readonly Pixel[,] _buffer;
 
-    public ScreenBuffer(int width, int height)
+    internal ScreenBuffer(int width, int height)
     {
         _buffer = new Pixel[width, height];
         for (int i = 0; i < width; i++)

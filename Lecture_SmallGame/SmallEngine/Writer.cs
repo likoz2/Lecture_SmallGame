@@ -1,14 +1,6 @@
-﻿using Lecture_SmallGame.SmallEngine.Components;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.Versioning;
-using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
-using static Lecture_SmallGame.Program;
+﻿using System.Runtime.Versioning;
+
+using Lecture_SmallGame.SmallEngine.Components;
 
 namespace Lecture_SmallGame.SmallEngine;
 
@@ -29,8 +21,8 @@ public enum ColorGround
 
 internal static class Writer
 {
-    public static int Width { get; private set; } = 160;
-    public static int Height { get; private set; } = 40;
+    internal static int Width { get; private set; } = 160;
+    internal static int Height { get; private set; } = 40;
 
     private static readonly ScreenBuffer _screenBuffer = new ScreenBuffer(Width, Height);
     private static readonly List<Renderer> _renderers = new List<Renderer>();
@@ -38,7 +30,7 @@ internal static class Writer
     [SupportedOSPlatform("windows")]
     static Writer()
     {
-        SetConsoleWindowSize(Width, Height);
+        SetConsoleWindowSize(Width+1, Height+1);
     }
 
     [SupportedOSPlatform("windows")]
@@ -47,7 +39,7 @@ internal static class Writer
         Console.SetWindowSize(width, height);
     }
 
-    public static void WriteBorder()
+    internal static void WriteBorder()
     {
         throw new NotImplementedException();
         Console.SetCursorPosition(1, Height);

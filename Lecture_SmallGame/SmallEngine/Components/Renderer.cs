@@ -1,6 +1,6 @@
 ﻿namespace Lecture_SmallGame.SmallEngine.Components;
 
-internal abstract class Renderer : Component
+public abstract class Renderer : Component
 {
     public int Layer { get; set { field = value; OnLayerChange(value); Writer.OnRendererChangeLayer(this); } } = 10;
 

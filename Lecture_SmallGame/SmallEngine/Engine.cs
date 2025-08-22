@@ -1,16 +1,11 @@
 ﻿using Lecture_SmallGame.SmallEngine.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lecture_SmallGame.SmallEngine;
 
-internal static class Engine
+public static class Engine
 {
     static readonly List<GameObject> _gameObjects = new List<GameObject>();
-    const int _tickRate = 10;
+    const int _tickRate = 30;
 
     public static Transform Root { get; private set; }
 
@@ -39,7 +34,7 @@ internal static class Engine
         }
     }
 
-    internal static void InputLoop()
+    private static void InputLoop()
     {
         ConsoleKeyInfo key;
         while (true)

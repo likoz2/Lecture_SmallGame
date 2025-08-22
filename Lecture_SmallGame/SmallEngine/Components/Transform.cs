@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 
 namespace Lecture_SmallGame.SmallEngine.Components;
 
-internal class Transform : Component, IEnumerable<Transform>
+public class Transform : Component, IEnumerable<Transform>
 {
     private readonly List<Transform> _children = new List<Transform>();
     public string Name { get; set; }

@@ -1,10 +1,5 @@
 ﻿using Lecture_SmallGame.SmallEngine;
 using Lecture_SmallGame.SmallEngine.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lecture_SmallGame;
 

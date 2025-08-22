@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace Lecture_SmallGame.SmallEngine;
 
-internal class Sprite
+public class Sprite
 {
     public int Width { get; init; }
     public int Height { get; init; }
@@ -61,7 +57,7 @@ internal class Sprite
         }
     }
 
-    internal char CharAt(int x, int y)
+    public char CharAt(int x, int y)
     {
         if (y < 0 || y >= Height)
             return '\0';
@@ -72,7 +68,7 @@ internal class Sprite
         return _pixelDatas[x, y].Char;
     }
 
-    internal PixelData PixelDataAt(int x, int y)
+    public PixelData PixelDataAt(int x, int y)
     {
         return _pixelDatas[x, y]; // will throw an exception if out of bounds
     }

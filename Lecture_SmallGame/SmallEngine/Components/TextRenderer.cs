@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Lecture_SmallGame.SmallEngine.Components;
 
 // TODO implement multiline, wrap and overflow, maybe some color animation or _ animation
-internal class TextRenderer : Renderer
+public class TextRenderer : Renderer
 {
     public string Text { get; set { string lastText = field; field = value; OnTextChange(lastText); } } = "";
 

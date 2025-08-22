@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Lecture_SmallGame.SmallEngine.Components;
 
 // TODO IsDirty with trigger colliders being calculated only once per frame instead of every Move()
-internal class RigidBody : Component
+public class RigidBody : Component
 {
     readonly HashSet<Collider> _intersectors = new HashSet<Collider>();
 

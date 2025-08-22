@@ -1,13 +1,7 @@
-﻿using Lecture_SmallGame.SmallEngine.Components;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Lecture_SmallGame.SmallEngine;
 
-internal struct Bounds(Vector Position, Vector Size)
+public struct Bounds(Vector Position, Vector Size)
 {
     public Vector Position { get; init; } = Position;
     public Vector Size { get; init; } = Size;
@@ -22,7 +16,7 @@ internal struct Bounds(Vector Position, Vector Size)
         return x >= Position.X && y >= Position.Y && x < SecondPosition.X && y < SecondPosition.Y;
     }
 
-    internal bool Intersects(Bounds other)
+    public bool Intersects(Bounds other)
     {
         Vector aPos = Position;
         Vector aSize = Size;

@@ -1,6 +1,6 @@
 ﻿namespace Lecture_SmallGame.SmallEngine;
 
-internal record PixelData(char Char, Color ForegroundColor, Color BackgroundColor, ColorMod ColorMod, int Layer)
+public record PixelData(char Char, Color ForegroundColor, Color BackgroundColor, ColorMod ColorMod, int Layer)
 {
     public Color ForegroundColor { get; set; } = ForegroundColor;
 
